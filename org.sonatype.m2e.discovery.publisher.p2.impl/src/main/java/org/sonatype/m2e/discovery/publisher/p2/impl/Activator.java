@@ -32,8 +32,8 @@ public class Activator
     {
         BundleContext context = getContext();
 
-        ServiceReference providerRef = context.getServiceReference( IProvisioningAgentProvider.SERVICE_NAME );
-        IProvisioningAgentProvider provider = (IProvisioningAgentProvider) context.getService( providerRef );
+        ServiceReference<IProvisioningAgentProvider> providerRef = context.getServiceReference( IProvisioningAgentProvider.class );
+        IProvisioningAgentProvider provider = context.getService( providerRef );
         try
         {
             return provider.createAgent( null ); // null == currently running system
