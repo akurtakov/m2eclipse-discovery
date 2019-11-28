@@ -21,7 +21,8 @@ public class Activator
         Activator.instance = this;
     }
 
-    public void start( BundleContext context )
+    @Override
+	public void start( BundleContext context )
         throws Exception
     {
         this.context = context;
@@ -44,7 +45,8 @@ public class Activator
         }
     }
 
-    public void stop( BundleContext context )
+    @Override
+	public void stop( BundleContext context )
         throws Exception
     {
     }

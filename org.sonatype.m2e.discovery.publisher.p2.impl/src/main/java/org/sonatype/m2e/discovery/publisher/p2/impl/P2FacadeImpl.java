@@ -115,7 +115,8 @@ public class P2FacadeImpl
         return matches.iterator().next();
     }
 
-    public boolean getIU( String p2RepoUri, String iuId, String iuVersion, OutputStream destination )
+    @Override
+	public boolean getIU( String p2RepoUri, String iuId, String iuVersion, OutputStream destination )
     {
         try
         {
@@ -157,7 +158,7 @@ public class P2FacadeImpl
         throws ProvisionException
     {
         IMetadataRepositoryManager metadataRepositoryManager =
-            (IMetadataRepositoryManager) getP2Agent().getService( IMetadataRepositoryManager.SERVICE_NAME );
+            getP2Agent().getService( IMetadataRepositoryManager.class );
         if ( metadataRepositoryManager == null )
         {
             throw new IllegalStateException( "No metadata repository manager found" ); //$NON-NLS-1$
@@ -165,7 +166,8 @@ public class P2FacadeImpl
         return metadataRepositoryManager;
     }
 
-    public boolean validateLicense( String p2RepoUri, String iuId, String iuVersion )
+    @Override
+	public boolean validateLicense( String p2RepoUri, String iuId, String iuVersion )
     {
         try
         {
