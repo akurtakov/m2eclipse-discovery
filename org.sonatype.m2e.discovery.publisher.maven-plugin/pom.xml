@@ -32,19 +32,14 @@
       <version>${aether.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.sonatype.tycho</groupId>
-      <artifactId>tycho-equinox-api</artifactId>
-      <version>${tycho-p2.version}</version>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>sisu-equinox-api</artifactId>
+      <version>${tycho.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.sonatype.tycho</groupId>
-      <artifactId>tycho-equinox</artifactId>
-      <version>${tycho-p2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.sonatype.tycho</groupId>
+      <groupId>org.eclipse.tycho</groupId>
       <artifactId>tycho-p2-facade</artifactId>
-      <version>${tycho-p2.version}</version>
+      <version>${tycho.version}</version>
     </dependency>
     <dependency>
       <groupId>io.takari.m2e.discovery.publisher</groupId>

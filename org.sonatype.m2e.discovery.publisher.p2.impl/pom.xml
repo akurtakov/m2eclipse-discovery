@@ -20,24 +20,6 @@
     </repository>
   </repositories>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.sonatype.tycho</groupId>
-      <artifactId>org.sonatype.tycho.p2</artifactId>
-      <version>${tycho-p2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.sonatype.tycho</groupId>
-      <artifactId>org.sonatype.tycho.p2.impl</artifactId>
-      <version>${tycho-p2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.sonatype.tycho</groupId>
-      <artifactId>org.sonatype.tycho.p2.maven.repository</artifactId>
-      <version>${tycho-p2.version}</version>
-    </dependency>
-  </dependencies>
-
   <build>
     <plugins>
       <plugin>

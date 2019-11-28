@@ -62,7 +62,7 @@ import org.sonatype.m2e.discovery.catalog.model.MavenData;
 import org.sonatype.m2e.discovery.catalog.model.P2Data;
 import org.sonatype.m2e.discovery.catalog.model.io.xpp3.DiscoveryCatalogModelXpp3ReaderEx;
 import org.sonatype.m2e.discovery.publisher.p2.facade.P2Facade;
-import org.sonatype.tycho.equinox.EquinoxServiceFactory;
+import org.eclipse.sisu.equinox.EquinoxServiceFactory;
 
 /**
  * @goal generate

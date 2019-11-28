@@ -10,12 +10,11 @@ import org.apache.maven.model.Dependency;
 import org.codehaus.plexus.component.annotations.Component;
 import org.codehaus.plexus.component.annotations.Requirement;
 import org.codehaus.plexus.logging.Logger;
-import org.sonatype.tycho.p2.facade.internal.DefaultTychoP2RuntimeMetadata;
-import org.sonatype.tycho.p2.facade.internal.TychoP2RuntimeMetadata;
+import org.eclipse.tycho.osgi.runtime.TychoOsgiRuntimeArtifacts;
 
-@Component( role = TychoP2RuntimeMetadata.class, hint = "xx" )
+@Component( role = TychoOsgiRuntimeArtifacts.class, hint = "xx" )
 public class P2RuntimeMetadata
-    implements TychoP2RuntimeMetadata
+    implements TychoOsgiRuntimeArtifacts
 {
     private static final String DEFAULT_VERSION = "0.4.0";
 
@@ -54,7 +53,7 @@ public class P2RuntimeMetadata
 
     public static String getVersion()
     {
-        ClassLoader cl = DefaultTychoP2RuntimeMetadata.class.getClassLoader();
+        ClassLoader cl = TychoOsgiRuntimeArtifacts.class.getClassLoader();
         InputStream is =
             cl.getResourceAsStream( "META-INF/maven/org.sonatype.m2e.discovery.publisher/org.sonatype.m2e.discovery.publisher.maven-plugin/pom.properties" );
         String version = DEFAULT_VERSION;
