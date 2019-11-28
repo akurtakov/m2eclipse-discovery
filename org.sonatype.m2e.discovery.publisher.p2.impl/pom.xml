@@ -16,7 +16,7 @@
     <repository>
       <id>helios</id>
       <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/helios</url>
+      <url>http://download.eclipse.org/releases/2019-09</url>
     </repository>
   </repositories>
 
