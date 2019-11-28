@@ -147,7 +147,7 @@ public class M2eDiscoveryMetadataGeneratorMojo
                 boolean hasLifecycleMappings = false;
                 LifecycleMappingMetadataSource mergedLifecycleMappingMetadataSource =
                     new LifecycleMappingMetadataSource();
-                Xpp3Dom mergedPluginXmlDom = new _Xpp3Dom( "plugin" );
+                Xpp3Dom mergedPluginXmlDom = new Xpp3Dom( "plugin" );
 
                 P2Data p2Data = catalogItem.getP2Data();
                 MavenData mavenData = catalogItem.getMavenData();
@@ -517,11 +517,11 @@ public class M2eDiscoveryMetadataGeneratorMojo
     private void generateMainPluginXml( DiscoveryCatalog catalog )
         throws IOException, MojoExecutionException
     {
-        Xpp3Dom pluginXmlDom = new _Xpp3Dom( "plugin" );
+        Xpp3Dom pluginXmlDom = new Xpp3Dom( "plugin" );
 
         if ( catalog.getCategories().size() > 0 )
         {
-            Xpp3Dom extensionDom = new _Xpp3Dom( "extension" );
+            Xpp3Dom extensionDom = new Xpp3Dom( "extension" );
             extensionDom.setAttribute( "point", "org.eclipse.mylyn.discovery.core.connectorDiscovery" );
             pluginXmlDom.addChild( extensionDom );
             for ( DiscoveryCategory category : catalog.getCategories() )
@@ -533,7 +533,7 @@ public class M2eDiscoveryMetadataGeneratorMojo
 
         if ( catalog.getCatalogItems().size() > 0 )
         {
-            Xpp3Dom extensionDom = new _Xpp3Dom( "extension" );
+            Xpp3Dom extensionDom = new Xpp3Dom( "extension" );
             extensionDom.setAttribute( "point", "org.eclipse.mylyn.discovery.core.connectorDiscovery" );
             pluginXmlDom.addChild( extensionDom );
             for ( DiscoveryCatalogItem item : catalog.getCatalogItems() )
@@ -551,7 +551,7 @@ public class M2eDiscoveryMetadataGeneratorMojo
 
     private Xpp3Dom discoveryCategory2PluginXml( DiscoveryCategory category )
     {
-        Xpp3Dom result = new _Xpp3Dom( "connectorCategory" );
+        Xpp3Dom result = new Xpp3Dom( "connectorCategory" );
         result.setAttribute( "id", category.getId() );
         result.setAttribute( "name", category.getName() );
         result.setAttribute( "description", category.getDescription() );
@@ -559,7 +559,7 @@ public class M2eDiscoveryMetadataGeneratorMojo
 
         for ( String groupId : category.getGroupIds() )
         {
-            Xpp3Dom groupDom = new _Xpp3Dom( "group" );
+            Xpp3Dom groupDom = new Xpp3Dom( "group" );
             groupDom.setAttribute( "id", groupId );
             result.addChild( groupDom );
         }
@@ -567,7 +567,7 @@ public class M2eDiscoveryMetadataGeneratorMojo
         DiscoveryIcon icon = category.getIcon();
         if ( icon != null )
         {
-            Xpp3Dom iconDom = new _Xpp3Dom( "icon" );
+            Xpp3Dom iconDom = new Xpp3Dom( "icon" );
             iconDom.setAttribute( "image" + icon.getSize(), icon.getPath() );
             result.addChild( iconDom );
         }
@@ -577,7 +577,7 @@ public class M2eDiscoveryMetadataGeneratorMojo
 
     private Xpp3Dom discoveryItem2PluginXml( DiscoveryCatalogItem item )
     {
-        Xpp3Dom result = new _Xpp3Dom( "connectorDescriptor" );
+        Xpp3Dom result = new Xpp3Dom( "connectorDescriptor" );
         result.setAttribute( "id", item.getId() );
         result.setAttribute( "name", item.getName() );
         result.setAttribute( "description", item.getDescription() );
@@ -588,14 +588,14 @@ public class M2eDiscoveryMetadataGeneratorMojo
         result.setAttribute( "provider", item.getProvider() );
         result.setAttribute( "siteUrl", item.getP2Data().getRepositoryUrl() );
 
-        Xpp3Dom iuDom = new _Xpp3Dom( "iu" );
+        Xpp3Dom iuDom = new Xpp3Dom( "iu" );
         iuDom.setAttribute( "id", item.getP2Data().getIuId() );
         iuDom.setAttribute( "version", item.getP2Data().getIuVersion() );
         result.addChild( iuDom );
 
         for ( IUData rootIU : item.getP2Data().getRootIUs() )
         {
-            Xpp3Dom rootIUDom = new _Xpp3Dom( "iu" );
+            Xpp3Dom rootIUDom = new Xpp3Dom( "iu" );
             rootIUDom.setAttribute( "id", rootIU.getIuId() );
             if ( rootIU.getIuVersion() != null )
             {
@@ -604,29 +604,11 @@ public class M2eDiscoveryMetadataGeneratorMojo
             result.addChild( rootIUDom );
         }
 
-        Xpp3Dom overviewDom = new _Xpp3Dom( "overview" );
+        Xpp3Dom overviewDom = new Xpp3Dom( "overview" );
         overviewDom.setAttribute( "summary", item.getOverview().getSummary() );
         overviewDom.setAttribute( "url", item.getOverview().getUrl() );
         result.addChild( overviewDom );
 
         return result;
-    }
-
-    private static class _Xpp3Dom
-        extends Xpp3Dom
-    {
-        public _Xpp3Dom( String name )
-        {
-            super( name );
-        }
-
-        @Override
-        public void setAttribute( String name, String value )
-        {
-            if ( value != null )
-            {
-                super.setAttribute( name, value );
-            }
-        }
     }
 }
