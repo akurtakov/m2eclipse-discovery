@@ -11,7 +11,7 @@
   <packaging>maven-plugin</packaging>
 
   <properties>
-    <modello.version>1.5</modello.version>
+    <modello.version>1.11</modello.version>
     <aether.version>1.1.0</aether.version>
   </properties>
 
